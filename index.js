@@ -8,22 +8,31 @@ const { dbConnection } = require('./database/config');
 const app = express();
 
 // CORS configuration
-app.use  (cors() );
+app.use(cors());
+
+//  Read and body parse. Parse body must be placed before middelware use ('/api/...)
+app.use ( express.json() );
 
 // Database initialization.
 dbConnection();
 
+app.use('/api/usuarios',    require('./routes/usuarios'));
+app.use('/api/login',       require('./routes/auth'));
+
 // Print all environment varibles
 // console.log( process.env );
 
-app.get( '/', (req, res) =>{
-    // res.status(400).json({
-        res.json({
-        ok: true,
-        msg: 'Hello World !'
-    })
-} );
+// app.get('/api/usuarios', (req, res) => {
+//     // res.status(400).json({
+//     res.json({
+//         ok: true,
+//         usuarios: [{
+//             id: '1',
+//             nombre: 'Juanlu'
+//         }]
+//     })
+// });
 
-app.listen( process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log('Server running at ' + process.env.PORT);
 });
