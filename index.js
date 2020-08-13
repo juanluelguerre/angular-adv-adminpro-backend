@@ -17,7 +17,11 @@ app.use ( express.json() );
 dbConnection();
 
 app.use('/api/usuarios',    require('./routes/usuarios'));
+app.use('/api/hospitales',  require('./routes/hospitales'));
+app.use('/api/medicos',     require('./routes/medicos'));
 app.use('/api/login',       require('./routes/auth'));
+app.use('/api/all',         require('./routes/busquedas'));
+app.use('/api/upload',     require('./routes/uploads'));
 
 // Print all environment varibles
 // console.log( process.env );
