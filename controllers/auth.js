@@ -3,6 +3,7 @@ const { response } = require('express');
 const Usuario = require('../models/usuario');
 const bcrypt = require('bcryptjs');
 const { generarJWT } = require('../helpers/jwt');
+const { googleVerify } = require('../helpers/google-verify')
 
 const login = async (req, res = response) => {
 
@@ -29,7 +30,7 @@ const login = async (req, res = response) => {
         }
 
         // Generate JWT (Token)
-        const token = await generarJWT( userDB.id );
+        const token = await generarJWT(userDB.id);
 
         res.json({
             ok: true,
@@ -45,6 +46,52 @@ const login = async (req, res = response) => {
     }
 }
 
+const googleSignIn = async (req, res = response) => {
+
+    const googleToken = req.body.token;
+
+    try {
+
+        const { name, email, picture } = await googleVerify(googleToken);
+        let usuario;
+
+        const userDB = await Usuario.findOne({ email });
+        if (!userDB) {
+            usuario = new Usuario({
+                nombre: name,
+                email,
+                password: '', /* no need password. Authenticaton from Google */
+                img: picture,
+                google: true
+            })
+        } else {
+            usuario = userDB;
+            usuario.google = true;
+            // usuario.password = ''; /* Remove old password to have only one auth method*/
+        }
+
+        await usuario.save();
+
+        // Generate JWT (Token)
+        const token = await generarJWT(usuario.id);
+        res.json({
+            ok: true,
+            token
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(401).json({
+            ok: true,
+            msg: 'Google token not valid'
+        });
+    }
+
+
+
+
+}
+
 module.exports = {
-    login
+    login,
+    googleSignIn
 }
