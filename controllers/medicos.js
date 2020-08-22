@@ -40,18 +40,68 @@ const crearMedico = async (req, res = response) => {
     }
 }
 
-const actualizarMedico = (req, res = response) => {
-    res.json({
-        ok: true,
-        msg: 'actualizarMedico'
-    })
+const actualizarMedico = async (req, res = response) => {
+    const id = req.params.id;
+    const uid = req.uid;
+
+    try {
+        const medico = await Medico.findById(id);
+        if (!medico) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'Medico not found'
+            });
+        }
+
+        // 1) Opción 1
+        // medico.nombre = req.body.nombre;
+
+        // 2) opción 2
+        const cambiosMedico = {
+            ...req.body,
+            usuario: uid
+        }
+
+        // {new: true} --> last changes in DB updated !
+        const medicoUpdated = await Medico.findOneAndUpdate(id, cambiosMedico, { new: true });
+
+        res.json({
+            ok: true,
+            medicoUpdated
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'unexpected error found!'
+        })
+    }
 }
 
-const borrarMedico = (req, res = response) => {
-    res.json({
-        ok: true,
-        msg: 'borrarMedico'
-    })
+const borrarMedico = async (req, res = response) => {
+    const id = req.params.id;
+
+    try {
+        const medico = await Medico.findById(id);
+        if (!medico) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'Medico not found'
+            });
+        }        
+        await Medico.findOneAndDelete(id);
+
+        res.json({
+            ok: true,
+            msg: 'Medico has been deleted successfully'
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'unexpected error found!'
+        })
+    }
 }
 
 module.exports = {
