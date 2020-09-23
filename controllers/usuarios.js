@@ -86,7 +86,7 @@ const actualizarUsuario = async (req, res = response) => {
         if (!userDB) {
             return res.status(404).json({
                 ok: false,
-                msg: 'User with this id ∫does not exist'
+                msg: 'User with this id does not exist'
             })
         }
 
@@ -102,7 +102,14 @@ const actualizarUsuario = async (req, res = response) => {
             }
         }
 
-        fields.email = email;
+        if (!userDB.google) {
+            fields.email = email;
+        } else if (userDB.email !== email) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'Email de Google no puede ser actualizado'
+            });
+        }  
 
         // Remove unnecesaries data to avoid to be updated. So using "delete" Mongoose does not update it.
         // Use ...fields instead !!

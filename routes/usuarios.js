@@ -17,7 +17,7 @@ router.post('/',
     [
         check('nombre', 'Nombre required.').not().isEmpty(),
         check('password', 'Password, required.').not().isEmpty(),
-        check('email', 'Emial required.').isEmail(),
+        check('email', 'Email required.').isEmail(),
 
         // Placed after Checks.
         validarCampos
@@ -29,7 +29,7 @@ router.put('/:id',
     [
         validarJWT,
         check('nombre', 'Nombre required.').not().isEmpty(),
-        check('email', 'Emial required.').isEmail(),
+        check('email', 'Email required.').isEmail(),
         check('role', 'Role required.').not().isEmpty(),
 
         // Placed after Checks.

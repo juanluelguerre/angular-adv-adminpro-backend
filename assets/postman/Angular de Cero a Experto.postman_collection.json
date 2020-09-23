@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\" : \"jlguerrero@gmail.com\",\n    \"password\" : \"12345678\"\n}",
+					"raw": "{\n    \"email\" : \"test1@gmail.com\",\n    \"password\" : \"12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -35,13 +35,52 @@
 			"response": []
 		},
 		{
+			"name": "Renew Token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTIyNDMsImV4cCI6MTU5ODE1NTQ0M30.OSWq0_UfbguH_3P4VIJ8MQh5kjuhvkU86i4KGhlZMAM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login/renew",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login",
+						"renew"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Login Google",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"token\" : \"eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0NGY2MGU5ZmI1MTVhMmEwMWMxMWViZWIyMjg3MTI4NjA1NDA3MTEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNDAxNjYwNjYzODA5LWliYnQ1Z3Nna2p1ZWFibXNhb2oyczcwbDc4dWRwZDdoLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNDAxNjYwNjYzODA5LWliYnQ1Z3Nna2p1ZWFibXNhb2oyczcwbDc4dWRwZDdoLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAxMTA4MTMwNzExMzQzMTQzODcxIiwiZW1haWwiOiJqbGd1ZXJyZXJvQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiamc1WWNjUmRzYi1lYnBlZERTZzBfUSIsIm5hbWUiOiJKdWFuIEx1aXMgR3VlcnJlcm8gTWluZXJvIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdqQ2FmRTJoVzAwZWE5Z3BlVW1UOHN3RWtvLUQ4NFNhcTlCdGxWVzV3PXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Ikp1YW4gTHVpcyIsImZhbWlseV9uYW1lIjoiR3VlcnJlcm8gTWluZXJvIiwibG9jYWxlIjoiZXMiLCJpYXQiOjE1OTc0MjA1NzYsImV4cCI6MTU5NzQyNDE3NiwianRpIjoiNWVkNGY4MGIyZjBmYzBhNGZjODE3ZDY4MDU4NDgwNGQyZDY1MzkxNCJ9.HiIWBuUo-y_N4KlQZz6SzPbIpYVuM_A54XE35SbEvZ_Z1AcmcZx6xeHby2VJcdT8b9rVkQPbyiHNuPBoh3VtgQuVUbNTQuNDhzOIfaWKw0mdMo_7IFCf2Cwex3qwXp0_s3U8KyJFoQB5WNKt4VGN1ViKhuiYvoGH6_sB53137HsvV7PsL3KDOt0TuZ7DPzD1lLmgKg0B3Alm5mKFxxGTsSeV8CJ3Kk9djO_5y2cSov2gThrn5-MSIy3M6Sl3TTUtTxQZiElf8E-QGgEFGBfRlkHoG5QPkVkSZQmE0-QKIcyDbCigk0E_9Lpn4r7HfobVH5ttZRVha74YjhyG1tampQ\"\n}",
+					"raw": "{\n    \"token\" : \"eyJhbGciOiJSUzI1NiIsImtpZCI6IjZiYzYzZTlmMThkNTYxYjM0ZjU2NjhmODhhZTI3ZDQ4ODc2ZDgwNzMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNDAxNjYwNjYzODA5LWliYnQ1Z3Nna2p1ZWFibXNhb2oyczcwbDc4dWRwZDdoLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNDAxNjYwNjYzODA5LWliYnQ1Z3Nna2p1ZWFibXNhb2oyczcwbDc4dWRwZDdoLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAxMTA4MTMwNzExMzQzMTQzODcxIiwiZW1haWwiOiJqbGd1ZXJyZXJvQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiaXBnRVFSdlRMckszVlNoT1d0UWpvQSIsIm5hbWUiOiJKdWFuIEx1aXMgR3VlcnJlcm8gTWluZXJvIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdqQ2FmRTJoVzAwZWE5Z3BlVW1UOHN3RWtvLUQ4NFNhcTlCdGxWVzV3PXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Ikp1YW4gTHVpcyIsImZhbWlseV9uYW1lIjoiR3VlcnJlcm8gTWluZXJvIiwibG9jYWxlIjoiZXMiLCJpYXQiOjE1OTgxMTIyMTgsImV4cCI6MTU5ODExNTgxOCwianRpIjoiMTk1NjM4NTY5Y2IyZTdiOGMyZDFmNTcxNTEzNDExZjExNTJhYTgwNSJ9.Ft3PkY9J58deo80GY2By7NgzI14KSHZ0IL7vhXXLjQuoSbcbHzotpoRL1ZLm74IKELagVvtrwJnNhXlW5ULtxFAk44rkdl6nVSAWzz18Uvdf6Np3EftqBJOELr8MbiCE9TMKcbWOrJhvNc4wQTCnpd0BGsS2R6f0yhMjKfV7YrBRmTwMpTePYKevbuYqzqnSasefixnJoLd-sHP3J_0d26iiNLBgVaM5SR1xFU9qUiNAQFpMyxUB4KPWe91PDXQ73xoOSvbHnoowCjxNPuQOAPRDQtZJpDs0zGAknCVkeKbA6fEiWNlXfV-yWxMhOau_n2T8vvPO-Rqy1g_WIIm37w\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -248,7 +287,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM0MGU1MDMwZjYxN2RkNTE2N2I5NWMiLCJpYXQiOjE1OTczMzQ0NTcsImV4cCI6MTU5NzM3NzY1N30.DRU2eHhbjzoUaJ335iKC3TnrwpcVOuHulaeLioNm6VQ",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTM2OTgsImV4cCI6MTU5ODE1Njg5OH0.oa-ahudAYdMyr-_hr093l5sMKhQdbtrRKLVqj9pZWLw",
 						"type": "text"
 					}
 				],
@@ -280,7 +319,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM0MGU1MDMwZjYxN2RkNTE2N2I5NWMiLCJpYXQiOjE1OTczMzI3NDgsImV4cCI6MTU5NzM3NTk0OH0.JY9N069XtGr2-9q1_gf8J77YON8qRz2mPpWQUTHf_zE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTA1NzEsImV4cCI6MTU5ODE1Mzc3MX0.SSG6fchzo_8ZuK18GoBupsG6K-iuXPxyT-hsoSHPDXs",
 						"type": "text"
 					}
 				],
@@ -307,7 +346,7 @@
 					{
 						"key": "x-token",
 						"type": "text",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM0MGU1MDMwZjYxN2RkNTE2N2I5NWMiLCJpYXQiOjE1OTczMzQ0NTcsImV4cCI6MTU5NzM3NzY1N30.DRU2eHhbjzoUaJ335iKC3TnrwpcVOuHulaeLioNm6VQ"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTA1NzEsImV4cCI6MTU5ODE1Mzc3MX0.SSG6fchzo_8ZuK18GoBupsG6K-iuXPxyT-hsoSHPDXs"
 					}
 				],
 				"url": {
@@ -461,19 +500,19 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar Mecico",
+			"name": "Actualizar Medico",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "x-token",
 						"type": "text",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjMzYjhmZTcxZTM2MWQ5NGI5NjcwODciLCJpYXQiOjE1OTcyMjUyMTQsImV4cCI6MTU5NzI2ODQxNH0.dWvQtVvjo43fCPzwNAYHQCtGVFuJ-8U41yeQfizqfKc"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTIyNDMsImV4cCI6MTU5ODE1NTQ0M30.OSWq0_UfbguH_3P4VIJ8MQh5kjuhvkU86i4KGhlZMAM"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Juan Luis Guerrero Minero\",\n    \"email\" : \"jlguerrero2@gmail.com\",\n    \"password\" : \"12345678\",\n    \"role\": \"USER_ROLE\"\n}",
+					"raw": "{\n    \"nombre\": \"Carlos Pineda\",\n    \"hospital\": \"5f3410e9dff7feddd3cbf5b0\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -481,7 +520,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/medicos/xxx",
+					"raw": "http://localhost:3000/api/medicos/5f341a24efed83dfc59611a1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -490,7 +529,7 @@
 					"path": [
 						"api",
 						"medicos",
-						"xxx"
+						"5f341a24efed83dfc59611a1"
 					]
 				}
 			},
@@ -504,12 +543,12 @@
 					{
 						"key": "x-token",
 						"type": "text",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjMzYjhmZTcxZTM2MWQ5NGI5NjcwODciLCJpYXQiOjE1OTcyMjUyMTQsImV4cCI6MTU5NzI2ODQxNH0.dWvQtVvjo43fCPzwNAYHQCtGVFuJ-8U41yeQfizqfKc"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTA1NzEsImV4cCI6MTU5ODE1Mzc3MX0.SSG6fchzo_8ZuK18GoBupsG6K-iuXPxyT-hsoSHPDXs"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Juan Luis Guerrero Minero\",\n    \"email\" : \"jlguerrero2@gmail.com\",\n    \"password\" : \"12345678\",\n    \"role\": \"USER_ROLE\"\n}",
+					"raw": "{\n    \"nombre\": \"Hospital Regional del Norte\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -517,7 +556,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/hospitales/xxxx",
+					"raw": "http://localhost:3000/api/hospitales/5f3410cfdff7feddd3cbf5ae",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -526,7 +565,7 @@
 					"path": [
 						"api",
 						"hospitales",
-						"xxxx"
+						"5f3410cfdff7feddd3cbf5ae"
 					]
 				}
 			},
@@ -575,7 +614,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjMzYjhmZTcxZTM2MWQ5NGI5NjcwODciLCJpYXQiOjE1OTcyMjUyMTQsImV4cCI6MTU5NzI2ODQxNH0.dWvQtVvjo43fCPzwNAYHQCtGVFuJ-8U41yeQfizqfKc",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTIyNDMsImV4cCI6MTU5ODE1NTQ0M30.OSWq0_UfbguH_3P4VIJ8MQh5kjuhvkU86i4KGhlZMAM",
 						"type": "text"
 					}
 				],
@@ -589,7 +628,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/medicos/xxx",
+					"raw": "http://localhost:3000/api/medicos/5f341a24efed83dfc59611a1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -598,7 +637,7 @@
 					"path": [
 						"api",
 						"medicos",
-						"xxx"
+						"5f341a24efed83dfc59611a1"
 					]
 				}
 			},
@@ -612,7 +651,7 @@
 					{
 						"key": "x-token",
 						"type": "text",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjMzYjhmZTcxZTM2MWQ5NGI5NjcwODciLCJpYXQiOjE1OTcyMjUyMTQsImV4cCI6MTU5NzI2ODQxNH0.dWvQtVvjo43fCPzwNAYHQCtGVFuJ-8U41yeQfizqfKc"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjM2YjkwNmY4YjMyNzBlNzM0YjU5NjAiLCJpYXQiOjE1OTgxMTA1NzEsImV4cCI6MTU5ODE1Mzc3MX0.SSG6fchzo_8ZuK18GoBupsG6K-iuXPxyT-hsoSHPDXs"
 					}
 				],
 				"body": {
@@ -625,7 +664,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/hospitales/xxx",
+					"raw": "http://localhost:3000/api/hospitales/5f3410cfdff7feddd3cbf5ae",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -634,7 +673,7 @@
 					"path": [
 						"api",
 						"hospitales",
-						"xxx"
+						"5f3410cfdff7feddd3cbf5ae"
 					]
 				}
 			},

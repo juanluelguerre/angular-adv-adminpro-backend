@@ -25,7 +25,7 @@ const login = async (req, res = response) => {
         if (!validPassword) {
             return res.status(404).json({
                 ok: false,
-                msg: 'Bad email or bad assword '
+                msg: 'Bad email or bad password '
             })
         }
 
@@ -98,9 +98,13 @@ const renewToken = async (req, res = response) => {
     // Generate JWT (Token)
     const token = await generarJWT(uid);
 
+    const usuario = await Usuario.findById( uid );
+
+
     res.json({
         ok: true,
-        token
+        token,
+        usuario
     })
 }
 

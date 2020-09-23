@@ -33,7 +33,7 @@ const fileUpload = (req, res = response) => {
     const fileExtension = shortName[shortName.length - 1];
 
     // validate extensions
-    const validExtensions = ['png', 'jgp', 'jpeg', 'gif'];
+    const validExtensions = ['png', 'jpg', 'jpeg', 'gif'];
     if (!validExtensions.includes(fileExtension)) {
         return res.status(400).json({
             ok: false,
