@@ -2,11 +2,11 @@ const { response } = require('express')
 const Medico = require('../models/medico')
 
 const getMedicos = async (req, res = response) => {
-   
+
     const medicos = await Medico.find()
-                                //.populate('medico', 'nombre img')
-                                .populate('usuario', 'nombre img')
-                                .populate('hospital', 'nombre img')
+        //.populate('medico', 'nombre img')
+        .populate('usuario', 'nombre img')
+        .populate('hospital', 'nombre img')
 
     res.json({
         ok: true,
@@ -15,21 +15,44 @@ const getMedicos = async (req, res = response) => {
 
 }
 
+const getMedicoById = async (req, res = response) => {
+
+    const id = req.params.id;
+
+    try {
+        const medico = await Medico.findById(id)
+            //.populate('medico', 'nombre img')
+            .populate('usuario', 'nombre img')
+            .populate('hospital', 'nombre img')
+
+        res.json({
+            ok: true,
+            medico
+        });
+    } catch (error) {
+        res.json({
+            ok: false,
+            mesg: 'Médico not found'
+        })
+    }
+}
+
+
 const crearMedico = async (req, res = response) => {
     const uid = req.uid;
 
     const medico = new Medico({
-        usuario: uid, 
+        usuario: uid,
         ...req.body
     });
-    
+
     try {
 
         const medicoCreated = await medico.save();
 
         res.json({
             ok: true,
-            hospital: medicoCreated
+            medico: medicoCreated
         })
     } catch (error) {
         console.log(error)
@@ -62,6 +85,9 @@ const actualizarMedico = async (req, res = response) => {
             usuario: uid
         }
 
+
+console.log(cambiosMedico);
+
         // {new: true} --> last changes in DB updated !
         const medicoUpdated = await Medico.findOneAndUpdate(id, cambiosMedico, { new: true });
 
@@ -88,7 +114,7 @@ const borrarMedico = async (req, res = response) => {
                 ok: false,
                 msg: 'Medico not found'
             });
-        }        
+        }
         await Medico.findOneAndDelete(id);
 
         res.json({
@@ -108,5 +134,6 @@ module.exports = {
     getMedicos,
     crearMedico,
     actualizarMedico,
-    borrarMedico
+    borrarMedico,
+    getMedicoById
 }
