@@ -85,11 +85,8 @@ const actualizarMedico = async (req, res = response) => {
             usuario: uid
         }
 
-
-console.log(cambiosMedico);
-
         // {new: true} --> last changes in DB updated !
-        const medicoUpdated = await Medico.findOneAndUpdate(id, cambiosMedico, { new: true });
+        const medicoUpdated = await Medico.findByIdAndUpdate(id, cambiosMedico, { new: true });
 
         res.json({
             ok: true,
@@ -115,7 +112,7 @@ const borrarMedico = async (req, res = response) => {
                 msg: 'Medico not found'
             });
         }
-        await Medico.findOneAndDelete(id);
+        await Medico.findByIdAndDelete(id);
 
         res.json({
             ok: true,
