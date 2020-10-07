@@ -88,7 +88,7 @@ const borrarHospital = async (req, res = response) => {
             });
         }
 
-        await Hospital.findOneAndDelete(id);
+        await Hospital.findByIdAndDelete(id);
 
         res.json({
             ok: true,
