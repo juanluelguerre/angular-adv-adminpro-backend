@@ -1,5 +1,6 @@
 // Add '.env' variable to Process.en
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
@@ -25,6 +26,11 @@ app.use('/api/medicos',     require('./routes/medicos'));
 app.use('/api/login',       require('./routes/auth'));
 app.use('/api/all',         require('./routes/busquedas'));
 app.use('/api/upload',     require('./routes/uploads'));
+
+// LEARN: Need to woRk unDer heroku (when "publish" folder has the angular app "dist" content).
+app.get('*', (req, resp) => {
+    resp.sendFile( path.resolve( __dirname, 'public/index.html' ) );
+});
 
 // Print all environment varibles
 // console.log( process.env );
