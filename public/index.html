@@ -2,45 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id"
-        content="401660663809-ibbt5gsgkjueabmsaoj2s70l78udpd7h.apps.googleusercontent.com">
-    <title>Demo Login</title>
-</head>
+  <meta charset="utf-8" />
+  <title>AdminpPro</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<body>
+  <!-- JLGM: Info used according to: https://developers.google.com/identity/sign-in/web/build-button   -->
+  <meta name="google-signin-client_id" content="401660663809-ibbt5gsgkjueabmsaoj2s70l78udpd7h.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js"></script>
 
-    <h1>Google Sign-in</h1>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png" />
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- Bootstrap Core CSS -->
+  <link href="./assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="./assets/css/style.css" rel="stylesheet" />
 
-    <a href="#" onclick="signOut();">Sign out</a>
+  <!-- You can change the theme colors from here -->
 
-    <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-            
+  <!-- <link href="./assets/css/colors/purple-dark.css" id="theme" rel="stylesheet" /> -->
+  <link id="theme" rel="stylesheet" />
 
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log(id_token);
+<link rel="stylesheet" href="styles.31dd71f28ca3be1e11c1.css"></head>
 
-        }
+<body class="fix-header card-no-border fix-sidebar">
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+    <div class="loader">
+      <div class="loader__figure"></div>
+      <p class="loader__label">Admin Pro</p>
+    </div>
+  </div>
 
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-            });
-        }
-    </script>
+  <app-root></app-root>
 
-</body>
+  <!-- All Jquery -->
+  <!-- ============================================================== -->
+  <script src="./assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="./assets/plugins/bootstrap/js/popper.min.js"></script>
+  <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- slimscrollbar scrollbar JavaScript -->
+  <script src="./assets/js/perfect-scrollbar.jquery.min.js"></script>
+  <!--Wave Effects -->
+  <script src="./assets/js/waves.js"></script>
+  <!--Menu sidebar -->
+  <script src="./assets/js/sidebarmenu.js"></script>
+  <!--stickey kit -->
+  <script src="./assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+  <script src="./assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+  <!--Custom JavaScript -->
+  <script src="./assets/js/custom.js"></script>
+
+
+  <!-- Chartjs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script src="runtime-es2015.76944c6a867fcb5a538d.js" type="module"></script><script src="runtime-es5.76944c6a867fcb5a538d.js" nomodule defer></script><script src="polyfills-es5.177e85a9724683782539.js" nomodule defer></script><script src="polyfills-es2015.f332a089ad1600448873.js" type="module"></script><script src="main-es2015.4db465ab615b03786e53.js" type="module"></script><script src="main-es5.4db465ab615b03786e53.js" nomodule defer></script></body>
 
 </html>
